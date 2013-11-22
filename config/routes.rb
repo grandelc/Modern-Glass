@@ -4,7 +4,11 @@ ModernGlass::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  match 'products' => 'product#index', :as => "products", :via => :get
+  # Loads /products 
+  match 'products' => 'product#index', :as => :products, :via => :get
+
+  # Loads /products/id
+  match 'product/:id' => 'product#show', :as => :product, :via => :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
