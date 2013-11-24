@@ -10,6 +10,12 @@ ModernGlass::Application.routes.draw do
   # Loads /products/id
   match 'product/:id' => 'product#show', :as => :product, :via => :get
 
+  # Loads /home/search - probably will delete 
+  match 'search' => 'home#search', :as => 'search', :via => :get
+
+  match 'search_results' => 'home#search_results', 
+        :as => 'search_results', :via => :post 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
