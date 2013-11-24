@@ -1,8 +1,13 @@
 <h1><%= @product.model %></h1>
 
+<% if @product.image_filename %>
+	<p><%= image_tag @product.image_filename, :width => '250' %></p>
+<% end %>
+
 <% if @product.category %>
 	<p><%= @product.category.name %></p>
 <% end %>
+
 <p><%= @product.description %></p>
 <p><%= @product.price %></p>
 
