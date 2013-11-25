@@ -1,6 +1,6 @@
 <h1><%= @product.model %></h1>
 
-<% if @product.image_filename %>
+<% if @product.image_filename %> <!-- could also include .present? to determine if it exist -->
 	<p><%= image_tag @product.image_filename, :width => '250' %></p>
 <% end %>
 
@@ -10,5 +10,4 @@
 
 <p><%= @product.description %></p>
 <p><%= number_to_currency @product.price %></p>
-
-<%= link_to 'Back to all list', products_path %>
+<!-- <%= link_to 'Back to all list', products_path %> -->

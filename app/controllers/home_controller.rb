@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   end # Automatically lodas app/views/home/search.html.erb
 
   def search_results
+    
     @products = Product.where("model LIKE ?", "%#{params[:keywords]}%")
   end 
 end 
