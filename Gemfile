@@ -23,8 +23,8 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'activeadmin'
+gem "paperclip", "~> 3.0"
 gem "meta_search",  '>= 1.1.0.pre'
-
 
 
 # To use ActiveModel has_secure_password
