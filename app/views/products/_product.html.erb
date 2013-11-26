@@ -1,7 +1,7 @@
 <h2><%= link_to product.model, product_path(product) %></h2>
 
-<% if product.image_filename %>
-	<p><%= image_tag product.image_filename, :width => '250' %></p>
+<% if product.image_file_name.present? %>
+	<p><%= image_tag product.image.url(:medium) %></p>
 <% end %>
 
 <p><%= number_to_currency product.price %></p>

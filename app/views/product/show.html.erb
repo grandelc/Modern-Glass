@@ -1,7 +1,7 @@
 <h1><%= @product.model %></h1>
 
-<% if @product.image_filename %> <!-- could also include .present? to determine if it exist -->
-	<p><%= image_tag @product.image_filename, :width => '250' %></p>
+<% if @product.image_file_name.present? %>
+	<p><%= image_tag @product.image_file_name.url(:thumb) %></p>
 <% end %>
 
 <% if @product.category %>
