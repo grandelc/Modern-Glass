@@ -13,6 +13,6 @@ class ProductController < ApplicationController
   end 
 
   def new
-    @new_products = Product.all
+    @products = Product.order("id DESC").limit(2)
   end # Loads the home/new.html.erb
 end
