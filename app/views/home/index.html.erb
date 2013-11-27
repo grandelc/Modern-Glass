@@ -6,7 +6,10 @@
 		<p>
 			<%= link_to 'New', new_products_path, :class => "btn btn-primary btn-lg" %>
 
-		</p>
+			<% @categories.each do |category| %>
+				<%= link_to category.name, category_path(category.id), :class => "btn btn-primary btn-lg" %>
+			<% end %>
+		</p>			
 	</div>
 </div>
 

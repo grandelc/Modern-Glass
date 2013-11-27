@@ -17,7 +17,7 @@ class ProductController < ApplicationController
   end # Loads the home/new.html.erb
 
   def category
-    @category = Category.find(params[:id])
-    @products = Product.where(:category_id => params[:id])
+     @products = Product.where(:category_id => params[:id])
+     @category = Category.find(params[:id])
   end 
 end

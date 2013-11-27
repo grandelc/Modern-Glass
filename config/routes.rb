@@ -13,7 +13,8 @@ ModernGlass::Application.routes.draw do
   # Loads /product/new
   match 'products/new' => 'product#new', :as => :new_products, :via => :get 
 
-  match 'products/category' => 'product#category', :as => :category, :via => :get
+  # Loads /product/category
+  match 'category/:id' => 'product#category', :as => :category, :via => :get
 
   # Loads the search results
   match 'search_results' => 'home#search_results', :as => :search_results, :via => :post 

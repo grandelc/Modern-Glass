@@ -18,7 +18,14 @@
 
     <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
-			<li><%= link_to 'Products', products_path %></li>
+			<li class="dropdown open">
+				<%= link_to 'Products', products_path %>
+				<ul class="dropdown-menu">
+                    <li><a href="#">Test</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Brands</li>
+                </ul>
+			</li>
 			<li><%= link_to 'Home', root_path %></li>
 	    </ul>
 
