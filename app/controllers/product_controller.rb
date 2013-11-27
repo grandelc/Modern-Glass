@@ -3,7 +3,7 @@ class ProductController < ApplicationController
   # Displays all products 
   # Automatically load app/views/product/index.html.erb
   def index
-    @products = Product.all
+    @products = Product.order("model").page(params[:page]).per(3)
   end 
 
   # Displays individual products
