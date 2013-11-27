@@ -1,7 +1,15 @@
-<h2><%= link_to product.model, product_path(product) %></h2>
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		   <h2 class="panel-title"><%= link_to product.model, product_path(product) %></h2>
+		</div>
 
-<% if product.image_file_name.present? %>
-	<p><%= image_tag product.image.url(:medium) %></p>
-<% end %>
+		<div class="panel-body">
+		    <% if product.image_file_name.present? %>
+				<p><%= image_tag product.image.url(:medium) %></p>
+			<% end %>
 
-<p><%= number_to_currency product.price %></p>
+			<p><%= number_to_currency product.price %></p>
+		</div>
+	</div>
+</div>

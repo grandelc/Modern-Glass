@@ -13,6 +13,11 @@ class ProductController < ApplicationController
   end 
 
   def new
-    @products = Product.order("id DESC").limit(2)
+    @products = Product.order("id DESC").page(params[:page]).per(3)
   end # Loads the home/new.html.erb
+
+  def category
+    @category = Category.find(params[:id])
+    @products = Product.where(:category_id => params[:id])
+  end 
 end

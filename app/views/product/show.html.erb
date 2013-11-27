@@ -1,19 +1,28 @@
-<h1><%= @product.model %></h1>
+<div class="page-header">
+  <h1><%= @product.model %></h1>
+</div>
 
-<% if @product.image_file_name.present? %>
-	<p><%= image_tag @product.image.url(:medium) %></p>
-<% end %>
+<div class="col-lg-6">
+    <% if @product.image_file_name.present? %>
+		<p><%= image_tag @product.image.url(:medium) %></p>
+	<% end %>
+</div>
 
-<% if @product.category %>
-	<p><%= @product.category.name %></p>
-<% end %>
+<div class="col-lg-4 col-lg-offset-1">
+	<div class="well">
+		<% if @product.category %>
+			<p><%= @product.category.name %></p>
+		<% end %>
 
-<% if @product.stock_quantity.present? %>
-	<p>Should display quantity or add to cart button</p>
-<% else %>
-	<p>SOLD OUT</p>
-<% end %>
+		<h3><%= number_to_currency @product.price %></h3>
 
-<p><%= @product.description %></p>
-<p><%= number_to_currency @product.price %></p>
-<!-- <%= link_to 'Back to all list', products_path %> -->
+		<p><%= @product.description %></p>
+
+		<% if @product.stock_quantity.present? %>
+			<p>Should display quantity or add to cart button</p>
+		<% else %>
+			<span class="btn btn-danger btn-sm">SOLD OUT</span><br><br>
+			<button type="button" class="btn btn-primary btn-sm disabled">Add To Cart</button>
+		<% end %>
+	</div>
+</div>
