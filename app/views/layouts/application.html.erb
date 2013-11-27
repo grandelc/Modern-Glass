@@ -8,19 +8,34 @@
 </head>
 <body>
 
-<ul>
-	<li><%= link_to 'Products', products_path %></li>
-	<li><%= link_to 'Home', root_path %></li>
-	<li><%= link_to 'New', new_products_path %></li>
-	<li><%= link_to 'Admin', admin_root_path %></li>
-</ul>
 
-<%= form_tag search_results_path do %>
-	<%= text_field_tag :keywords %>
-	<%= submit_tag 'Search' %>
-<% end %>
+<div class="navbar navbar-default">
+	<div class="navbar-header">
+		<ul class="nav navbar-nav">
+      		<li><%= link_to 'MODERN | GLASS', root_path %></li>
+      	</ul>
+    </div>
 
-<%= yield %>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+	    <ul class="nav navbar-nav">
+			<li><%= link_to 'Products', products_path %></li>
+			<li><%= link_to 'Home', root_path %></li>
+	    </ul>
+
+	    <ul class="nav navbar-nav navbar-right">
+	    	<li><%= link_to 'Admin', admin_root_path %></li>
+      	</ul>
+	</div>
+</div>
+
+<div class="container">
+	<%= form_tag search_results_path do %>
+		<%= text_field_tag :keywords %>
+		<%= submit_tag 'Search' %>
+	<% end %>
+
+	<%= yield %>
+</div>
 
 </body>
 </html>
