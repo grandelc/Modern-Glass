@@ -1,3 +1,7 @@
 <h1>Search Results</h1>
 
-<%= render @products %>
+<% if @products.empty? %>
+	<p>No matches found.</p>
+<% else %>
+	<%= render @products %>
+<% end %>

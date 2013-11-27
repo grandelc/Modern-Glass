@@ -1,11 +1,17 @@
 <h1><%= @product.model %></h1>
 
 <% if @product.image_file_name.present? %>
-	<p><%= image_tag @product.image_file_name.url(:thumb) %></p>
+	<p><%= image_tag @product.image.url(:medium) %></p>
 <% end %>
 
 <% if @product.category %>
 	<p><%= @product.category.name %></p>
+<% end %>
+
+<% if @product.stock_quantity.present? %>
+	<p>Should display quantity or add to cart button</p>
+<% else %>
+	<p>SOLD OUT</p>
 <% end %>
 
 <p><%= @product.description %></p>

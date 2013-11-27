@@ -11,8 +11,14 @@
 <ul>
 	<li><%= link_to 'Products', products_path %></li>
 	<li><%= link_to 'Home', root_path %></li>
+	<li><%= link_to 'New', new_products_path %></li>
 	<li><%= link_to 'Admin', admin_root_path %></li>
 </ul>
+
+<%= form_tag search_results_path do %>
+	<%= text_field_tag :keywords %>
+	<%= submit_tag 'Search' %>
+<% end %>
 
 <%= yield %>
 

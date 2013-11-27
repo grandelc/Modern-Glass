@@ -11,4 +11,8 @@ class ProductController < ApplicationController
   def show 
     @product = Product.find(params[:id])
   end 
+
+  def new
+    @new_products = Product.all
+  end # Loads the home/new.html.erb
 end
