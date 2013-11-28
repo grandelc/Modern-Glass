@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ModernGlass</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="image_bg">
+
+<div class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<ul class="nav navbar-nav">
+	      		<li><%= link_to 'MODERN | GLASS', root_path %></li>
+	      	</ul>
+	    </div>
+
+	    <div class="navbar-collapse collapse navbar-responsive-collapse">
+		    <ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+	                   	<li><%= render partial: "product/category", collection: @categories %></li>
+
+	                </ul>
+				</li>
+				<li><%= link_to 'New', new_products_path %></li>
+	            <li><%= link_to "Sale", sale_products_path %></li>
+				<li><%= link_to 'Home', root_path %></li>
+		    </ul>
+
+		    <ul class="nav navbar-nav navbar-right">
+		    	<li>
+		    		<%= form_tag search_results_path, :class => "navbar-form" do %>
+						<%= text_field_tag :keywords %>
+						<%= submit_tag 'Search' %>
+					<% end %>
+				</li>
+		    	<li><%= link_to 'Admin', admin_root_path %></li>
+	      	</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+
+	<%= yield %>
+</div>
+
+</body>
+</html>

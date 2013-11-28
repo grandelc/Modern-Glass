@@ -6,7 +6,7 @@
 
 		<div class="panel-body">
 		    <% if product.image_file_name.present? %>
-				<p><%= image_tag product.image.url(:medium) %></p>
+				<p><%= link_to image_tag product.image.url(:medium) %></p>
 			<% end %>
 
 			<% if product.sale_price then %>

@@ -5,6 +5,8 @@ class HomeController < ApplicationController
 
     # Allows to display category names
     @categories = Category.all
+
+    render :layout =>"homepage"
   end # Automatically Load: app/views/home/index.html.erb
 
   def search_results
@@ -16,7 +18,7 @@ class HomeController < ApplicationController
                                "%#{params[:keywords]}%", "%#{params[:keywords]}%").page(params[:page]).per(9)
     else
       @products = Product.where("name LIKE ? OR model LIKE ? OR category_id LIKE ?",
-                               "%#{params[:keywords]}%", "%#{params[:keywords]}%", "%#{@category.first.id}%").page(params[:page]).per(9)
+                               "%#{params[:keywords]}%", "%#{params[:keywords]}%", "%#{@category.first.id}%").page(params[:page]).per(2)
     end 
   end
 end 
