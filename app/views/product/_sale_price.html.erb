@@ -1,0 +1,10 @@
+<% if product.sale_price then %>
+	<p>
+		<div class="original-crossout">
+			<%= number_to_currency product.price %>
+		</div>
+	    <%= number_to_currency product.sale_price %>
+	</p>
+<% else %>
+	<p><%= number_to_currency product.price %></p>
+<% end %>

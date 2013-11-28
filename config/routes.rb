@@ -1,23 +1,27 @@
 ModernGlass::Application.routes.draw do
+  # Loads root path 
   root :to => 'home#index', :via => :get
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   # Loads /products 
-  match 'products' => 'product#index', :as => :products, :via => :get
+  match 'products'        => 'product#index',       :as => :products,       :via => :get
 
   # Loads /product/id
-  match 'product/:id' => 'product#show', :as => :product, :via => :get
+  match 'product/:id'     => 'product#show',        :as => :product,        :via => :get
 
   # Loads /product/new
-  match 'products/new' => 'product#new', :as => :new_products, :via => :get 
+  match 'products/new'    => 'product#new',         :as => :new_products,   :via => :get 
+
+  # Loads /products/sale
+  match 'products/sale'   => 'product#sale',         :as => :sale_products,  :via => :get
 
   # Loads /product/category
-  match 'category/:id' => 'product#category', :as => :category, :via => :get
+  match 'category/:id'    => 'product#category',    :as => :category,       :via => :get
 
   # Loads the search results
-  match 'search_results' => 'home#search_results', :as => :search_results, :via => :post 
+  match 'search_results'  => 'home#search_results', :as => :search_results, :via => :post 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

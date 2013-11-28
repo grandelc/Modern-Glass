@@ -9,4 +9,12 @@
 	<%= render @products %>
 <% end %>
 
+<% if @products_model.empty? %>
+
+	<p>No matches found.</p>
+	
+<% else %>
+	<%= render @products %>
+<% end %>
+
 </diV>

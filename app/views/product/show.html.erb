@@ -14,16 +14,25 @@
 			<p><%= @product.category.name %></p>
 		<% end %>
 
-		<h3><%= number_to_currency @product.price %></h3>
+		<% if @product.sale_price then %>
+			<h3>
+				<div class="original-crossout">
+					<%= number_to_currency @product.price %>
+				</div>
+			    <%= number_to_currency @product.sale_price %>
+			</h3>
+		<% else %>
+			<h3><%= number_to_currency @product.price %></h3>
+		<% end %><br>
 
 		<p><%= @product.description %></p>
 
 		<% if @product.stock_quantity.present? %>
 			<p>Should display quantity or add to cart button</p>
-			<button type="button" class="btn btn-primary btn-sm active">Add To Cart</button>
+			<button type="button" class="btn btn-primary btn-sm active">ADD TO CART</button>
 		<% else %>
 			<span class="btn btn-danger btn-sm">SOLD OUT</span><br><br>
-			<button type="button" class="btn btn-primary btn-sm disabled">Add To Cart</button>
+			<button type="button" class="btn btn-primary btn-sm disabled">ADD TO CART</button>
 		<% end %>
 	</div>
 </div>
