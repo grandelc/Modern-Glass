@@ -8,8 +8,15 @@ class HomeController < ApplicationController
   end # Automatically Load: app/views/home/index.html.erb
 
   def search_results
-    @products = Product.where("name LIKE ?", "%#{params[:keywords]}%")
 
-    @products_model = Product.where("model LIKE ?", "%#{params[:keywords]}%")
-  end 
+    @category = Category.where("name LIKE ?", "%#{params[:keywords]}%")
+
+    if (@category.first.nil?)
+      @products = Product.where("name LIKE ? OR model LIKE ?",
+                               "%#{params[:keywords]}%", "%#{params[:keywords]}%").page(params[:page]).per(9)
+    else
+      @products = Product.where("name LIKE ? OR model LIKE ? OR category_id LIKE ?",
+                               "%#{params[:keywords]}%", "%#{params[:keywords]}%", "%#{@category.first.id}%").page(params[:page]).per(9)
+    end 
+  end
 end 
