@@ -303,6 +303,11 @@ body {
   font-size: 15px;
   line-height: 1.428571429;
   color: #222222;
+  background: url('../images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-color: #ffffff;
 }
 
@@ -5543,13 +5548,14 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
+  text-align: right;
   padding: 30px;
   margin-bottom: 30px;
   font-size: 23px;
   font-weight: 200;
   line-height: 2.1428571435;
-  color: inherit;
-  background-color: #f8f8f8;
+  color: #FFF;
+  background-color: rgba(0,0,0,0.2);
 }
 
 .jumbotron h1 {
