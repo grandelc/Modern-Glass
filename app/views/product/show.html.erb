@@ -4,7 +4,7 @@
 
 <div class="col-lg-6">
     <% if @product.image_file_name.present? %>
-		<p><%= image_tag @product.image.url(:medium) %></p>
+		<p><%= image_tag @product.image.url(:large) %></p>
 	<% end %>
 </div>
 
@@ -20,6 +20,7 @@
 
 		<% if @product.stock_quantity.present? %>
 			<p>Should display quantity or add to cart button</p>
+			<button type="button" class="btn btn-primary btn-sm active">Add To Cart</button>
 		<% else %>
 			<span class="btn btn-danger btn-sm">SOLD OUT</span><br><br>
 			<button type="button" class="btn btn-primary btn-sm disabled">Add To Cart</button>

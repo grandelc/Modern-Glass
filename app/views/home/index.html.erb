@@ -1,15 +1,17 @@
-<div class="bs-docs-section">
-	<div class="jumbotron">
-		<h1>MODERN | GLASS</h1>
-		<p>Living in todays world of glass</p>
+<div class="background">
+	<div class="bs-docs-section">
+		<div class="jumbotron">
+			<h1>MODERN | GLASS</h1>
+			<p>Living in todays world of glass</p>
 
-		<p>
-			<%= link_to 'New', new_products_path, :class => "btn btn-primary btn-lg" %>
+			<p>
+				<%= link_to 'New', new_products_path, :class => "btn btn-primary btn-lg" %>
 
-			<% @categories.each do |category| %>
-				<%= link_to category.name, category_path(category.id), :class => "btn btn-primary btn-lg" %>
-			<% end %>
-		</p>			
+				<% @categories.each do |category| %>
+					<%= link_to category.name, category_path(category.id), :class => "btn btn-primary btn-lg" %>
+				<% end %>
+			</p>			
+		</div>
 	</div>
 </div>
 
