@@ -11,8 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
+//= require ckeditor/init
 //= require bootstrap
 //= require jquery
 //= require_tree .
+
 
 

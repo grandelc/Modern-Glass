@@ -1,12 +1,6 @@
 class HomeController < ApplicationController
-
   def index
     @products = Product.order(:model)
-
-    # Allows to display category names
-    @categories = Category.all
-
-    render :layout =>"homepage"
   end # Automatically Load: app/views/home/index.html.erb
 
   def search_results

@@ -26,6 +26,7 @@ gem 'activeadmin'
 gem "paperclip", "~> 3.0"
 gem "meta_search",  '>= 1.1.0.pre'
 gem 'kaminari'
+gem "ckeditor"
 
 
 # To use ActiveModel has_secure_password

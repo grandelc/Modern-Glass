@@ -3,6 +3,7 @@ class ProductController < ApplicationController
   # Displays all products 
   def index
     @products = Product.order("model").page(params[:page]).per(8)
+    
   end 
 
   # Displays individual products
@@ -12,7 +13,7 @@ class ProductController < ApplicationController
 
   # Displays new products
   def new
-    @products = Product.order("id DESC").page(params[:page]).per(6)
+    @products = Product.order("id DESC").page(params[:page]).per(3)
   end # Loads the home/new.html.erb
 
   # Displays products in a category

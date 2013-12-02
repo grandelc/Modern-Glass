@@ -1,4 +1,6 @@
 ModernGlass::Application.routes.draw do
+  mount Ckeditor::Engine => "/ckeditor"
+
   # Loads root path 
   root :to => 'home#index', :via => :get
   
