@@ -3,12 +3,16 @@ class ProductController < ApplicationController
   # Displays all products 
   def index
     @products = Product.order("model").page(params[:page]).per(8)
-    
   end 
 
   # Displays individual products
   def show 
     @product = Product.find(params[:id])
+
+    session[:visit_count] ||= 0
+    session[:visit_count] += 1
+
+    @visit_count = session[:visit_count]
   end 
 
   # Displays new products
@@ -25,5 +29,5 @@ class ProductController < ApplicationController
   # Displays products on sale
   def sale
     @products = Product.where("sale_price IS NOT NULL").page(params[:page]).per(8)
-  end 
+  end
 end

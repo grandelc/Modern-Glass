@@ -15,4 +15,8 @@ class HomeController < ApplicationController
                                "%#{params[:keywords]}%", "%#{params[:keywords]}%", "%#{@category.first.id}%").page(params[:page]).per(2)
     end 
   end
+
+  def page
+    @pages = Page.find(params[:id])
+  end
 end 

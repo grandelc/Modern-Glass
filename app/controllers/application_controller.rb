@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
      @categories = Category.all
   end
 
-  protected
   def load_pages
     @pages = Page.all
   end

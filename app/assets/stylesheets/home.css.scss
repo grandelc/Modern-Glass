@@ -18,3 +18,10 @@ $inline-padding: 10px;
 	display: inline;
 	padding-right: $inline-padding;
 }
+
+.jumbotron{
+	.page_para{
+		text-align: left;
+		font-size: 15px;
+	}
+}

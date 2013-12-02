@@ -1,4 +1,6 @@
 ModernGlass::Application.routes.draw do
+  get "cart/index"
+
   mount Ckeditor::Engine => "/ckeditor"
 
   # Loads root path 
@@ -24,6 +26,11 @@ ModernGlass::Application.routes.draw do
 
   # Loads the search results
   match 'search_results'  => 'home#search_results', :as => :search_results, :via => :post 
+
+  # Loads the about us/contact us pages
+  match 'page/:id'        => 'home#page',           :as => :page,           :via => :get
+
+  match 'cart'            => 'cart#index',          :as => :cart,           :via => :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
