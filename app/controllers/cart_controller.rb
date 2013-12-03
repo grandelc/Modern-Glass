@@ -77,25 +77,44 @@ class CartController < ApplicationController
     new_customer.province_id = province.first
     new_customer.save
 
+    new_order = Order.new
+    new_order.customer = new_customer
+    new_order.gst_rate = new_customer.province.gst unless new_customer.province.gst.nil?
+    new_order.pst_rate = new_customer.province.pst unless new_customer.province.pst.nil?
+    new_order.hst_rate = new_customer.province.hst unless new_customer.province.hst.nil?
+
     @cart_prod.each do |product|
 
-      if(product.sale_price){
+      if(product.sale_price) then
         new_item = LineItem.new(:quantity => quantity,
                                 :price    => product.sale_price)
 
         order_total += product.sale_price
 
-      } else {
+       else 
         new_item = LineItem.new(:quantity => quantity,
                                 :price    => product.price)
 
         order_total += product.price
-      }
+      end
 
+      new_item.product = product
+      new_item.save
     end
+
+    order_total += order_total * new_customer.province.gst unless new_customer.province.gst.nil?
+    order_total += order_total * new_customer.province.pst unless new_customer.province.pst.nil?
+    order_total += order_total * new_customer.province.hst unless new_customer.province.hst.nil?
+
+    new_order.order_total = order_total
+    new_order.order_status = "Pending"
+    new_order.save
+
+    session[:cust_info] = nil
+    session[:cart] = nil
 
     flash[:order_complete] = "Order has been submitted"
 
-    redirect_to products_path
+    # redirect_to products_path
   end 
 end
