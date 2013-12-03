@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
        @categories = Category.all
     end
 
+    def load_products
+      @products = Product.all
+    end 
+
     def load_pages
       @pages_1 = Page.all
     end

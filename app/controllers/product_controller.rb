@@ -3,6 +3,7 @@ class ProductController < ApplicationController
   # Displays all products 
   def index
     @products = Product.order("model").page(params[:page]).per(8)
+    @product  = Product.all
   end 
 
   # Displays individual products

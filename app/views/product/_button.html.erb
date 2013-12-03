@@ -1,0 +1,6 @@
+<% if @product.stock_quantity.present? %>
+	<%= link_to 'ADD TO CART', add_to_cart_path(@product.id), :class => "btn btn-primary btn-sm active" %>
+<% else %>
+	<span class="btn btn-danger btn-sm disabled">SOLD OUT</span><br><br>
+	<button type="button" class="btn btn-primary btn-sm disabled">ADD TO CART</button>
+<% end %>
