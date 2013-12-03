@@ -42,6 +42,8 @@ ModernGlass::Application.routes.draw do
 
   match 'confirmation'    => 'cart#confirmation',    :as => :confirmation,  :via => :post
 
+  match 'create'          => 'cart#create',          :as => :create,        :via => :post
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

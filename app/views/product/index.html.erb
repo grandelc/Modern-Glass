@@ -1,5 +1,7 @@
 <% if flash[:success] %>
 	<%= flash[:success] %>
+<% elsif flash[:order_complete] %>
+	<%= flash[:order_complete] %>
 <% end %>
 
 <h1>All Products</h1>
