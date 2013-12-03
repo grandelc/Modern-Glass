@@ -14,9 +14,6 @@
 
 <header>
 
-	<!-- Temporary placing this as a local variable -->
-
-
 	<div class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -36,18 +33,12 @@
 					<li><%= link_to "Products", products_path %></li>
 					<li><%= link_to "New", new_products_path %></li>
 		            <li><%= link_to "Sale", sale_products_path %></li>
-					<li><%= link_to "Home", root_path %></li>
 			    </ul>
 
 			    <ul class="nav navbar-nav navbar-right">
-			    	<li><%= link_to 'Cart', cart_path %></li>
-			    	<li>	
-			    		<a href="#">
-			    			<% if session[:cart_count] %>
-			    				(<%= session[:cart_count] %>)
-			    			<% end %>
-			    		</a>
-			    	</li>
+			    	<% if @cart_prod %>
+			    		<li><%= link_to "Cart (#{@cart_prod.count})", cart_path %></li>
+			    	<% end %>
 			    	<li>
 			    		<%= form_tag search_results_path, :class => "navbar-form" do %>
 							<%= text_field_tag :keywords %>

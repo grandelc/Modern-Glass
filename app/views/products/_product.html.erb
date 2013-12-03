@@ -22,9 +22,16 @@
 						<%= number_to_currency product.price %>
 					</div>
 				    <%= number_to_currency product.sale_price %>
+				    <span class="label label-danger">ON SALE</span>
 				</p>
 			<% else %>
 				<p><%= number_to_currency product.price %></p>
+			<% end %>
+
+			<% if product.stock_quantity.present? %>
+				<%= link_to 'ADD TO CART', add_to_cart_path(product.id), :class => "btn btn-primary btn-sm active" %>
+			<% else %>
+				<button type="button" class="btn btn-primary btn-sm disabled">ADD TO CART</button>
 			<% end %>
 		</div>
 	</div>

@@ -36,7 +36,11 @@ ModernGlass::Application.routes.draw do
 
   match 'remove/:id'      => 'cart#remove_from_cart', :as => :remove_from_cart, :via => :get
 
-  match 'empty'           => 'cart#empty_cart',      :as => :empty_cart, :via => :get
+  match 'empty'           => 'cart#empty_cart',      :as => :empty_cart,    :via => :get
+
+  match 'checkout'        => 'cart#checkout',        :as => :checkout,      :via => :get
+
+  match 'confirmation'    => 'cart#confirmation',    :as => :confirmation,  :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

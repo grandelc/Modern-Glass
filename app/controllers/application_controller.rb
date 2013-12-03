@@ -27,7 +27,6 @@ class ApplicationController < ActionController::Base
 
       session[:cart_count] ||= 0
       @visit_count = session[:visit_count]
-
     end 
 
 end
