@@ -10,8 +10,6 @@
 
 <div class="col-lg-4 col-lg-offset-1">
 	<div class="well">
-		<p>You've visted this product <%= pluralize @visit_count, ' time' %></p>
-
 		<% if @product.category %>
 			<p><%= @product.category.name %></p>
 		<% end %>
@@ -31,7 +29,7 @@
 
 		<% if @product.stock_quantity.present? %>
 
-			<%= link_to 'ADD TO CART', cart_path, :class => "btn btn-primary btn-sm active" %>
+			<%= link_to 'ADD TO CART', add_to_cart_path(@product.id), :class => "btn btn-primary btn-sm active" %>
 
 		<% else %>
 			<span class="btn btn-danger btn-sm disabled">SOLD OUT</span><br><br>

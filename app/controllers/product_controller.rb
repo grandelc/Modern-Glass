@@ -8,11 +8,6 @@ class ProductController < ApplicationController
   # Displays individual products
   def show 
     @product = Product.find(params[:id])
-
-    session[:visit_count] ||= 0
-    session[:visit_count] += 1
-
-    @visit_count = session[:visit_count]
   end 
 
   # Displays new products

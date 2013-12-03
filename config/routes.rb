@@ -32,6 +32,12 @@ ModernGlass::Application.routes.draw do
 
   match 'cart'            => 'cart#index',          :as => :cart,           :via => :get
 
+  match 'add/:id'         => 'cart#add_to_cart',    :as => :add_to_cart,    :via => :get
+
+  match 'remove/:id'      => 'cart#remove_from_cart', :as => :remove_from_cart, :via => :get
+
+  match 'empty'           => 'cart#empty_cart',      :as => :empty_cart, :via => :get
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
