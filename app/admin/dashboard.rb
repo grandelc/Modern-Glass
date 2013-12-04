@@ -16,6 +16,7 @@ ActiveAdmin.register_page "Dashboard" do
     section "Recent Orders" do
       table_for Order.order("created_at desc").limit(5) do
         column :id
+        column :order_total
         column :created_at
         column :order_status
         column :customer_id

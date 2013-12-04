@@ -118,7 +118,7 @@ class CartController < ApplicationController
     session[:cust_info] = nil
     session[:cart] = nil
 
-    flash[:order_complete] = "Order has been submitted"
+    flash[:order_complete] = "Order has been submitted."
 
     redirect_to products_path
   end 
