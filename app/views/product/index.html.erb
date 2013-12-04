@@ -1,7 +1,13 @@
 <% if flash[:success] %>
-	<%= flash[:success] %>
+	<div class="alert alert-dismissable alert-success">
+	  <button type="button" class="close" data-dismiss="alert">×</button>
+	  <%= flash[:success] %>
+	</div>
 <% elsif flash[:order_complete] %>
-	<%= flash[:order_complete] %>
+	<div class="alert alert-dismissable alert-success">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Well done!</strong> <%= flash[:order_complete] %>
+    </div>
 <% end %>
 
 <h1>All Products</h1>

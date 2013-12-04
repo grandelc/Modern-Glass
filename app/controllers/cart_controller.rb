@@ -26,7 +26,7 @@ class CartController < ApplicationController
     session[:cart] = nil
     session[:cart_count] = nil
 
-    redirect_to products_path
+    redirect_to checkout_path
   end 
 
   def checkout
@@ -37,21 +37,26 @@ class CartController < ApplicationController
     session[:cust_info] = nil
     session[:cust_info] = []
 
-    @first_name  = params[:first_name]
-    @last_name   = params[:last_name]
-    @address     = params[:addres]
-    @city        = params[:city]
-    @province    = Province.where(:id => params[:province])
-    @postal_code = params[:postal_code]
-    @email       = params[:email]
+    if params[:first_name].empty? || params[:last_name].empty?
+      redirect_to checkout_path
+      flash[:error] = "Must enter first and last name."
+    else 
+      @first_name  = params[:first_name]
+      @last_name   = params[:last_name]
+      @address     = params[:addres]
+      @city        = params[:city]
+      @province    = Province.where(:id => params[:province])
+      @postal_code = params[:postal_code]
+      @email       = params[:email]
 
-    session[:cust_info] << @first_name
-    session[:cust_info] << @last_name
-    session[:cust_info] << @address
-    session[:cust_info] << @city
-    session[:cust_info] << params[:province]
-    session[:cust_info] << @postal_code
-    session[:cust_info] << @email
+      session[:cust_info] << @first_name
+      session[:cust_info] << @last_name
+      session[:cust_info] << @address
+      session[:cust_info] << @city
+      session[:cust_info] << params[:province]
+      session[:cust_info] << @postal_code
+      session[:cust_info] << @email
+    end
   end 
 
   def create
@@ -115,6 +120,6 @@ class CartController < ApplicationController
 
     flash[:order_complete] = "Order has been submitted"
 
-    # redirect_to products_path
+    redirect_to products_path
   end 
 end
